@@ -1,5 +1,6 @@
-const Item = function(name){
+const Item = function(name, price){
   this.name = name;
+  this.price = price;
 }
 
 module.exports = Item;

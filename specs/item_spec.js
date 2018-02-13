@@ -13,5 +13,9 @@ describe('Item', function(){
     const actual = item.name;
     assert.strictEqual(actual, 'Hagstrom UltraSwede');
   });
+  it('should have a price', function(){
+    const actual = item.price;
+    assert.strictEqual(actual, 420.99);
+  })
 
 });
