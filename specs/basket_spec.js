@@ -1,6 +1,7 @@
-const assert = require("assert");
-const Basket = require("../basket.js")
-const Item = require("../item.js")
+const assert    = require("assert");
+const Basket    = require("../basket.js")
+const Customer  = require("../customer.js")
+const Item      = require("../item.js")
 
 
 describe("Basket", function(){
@@ -49,7 +50,24 @@ describe("Basket", function(){
     assert.strictEqual(actual, 9.99);
   })
 
+  it('should be able to calculate a discount', function() {
+    let item1 = new Item('Curcumin', 30, true);
+    let item2 = new Item('Omega3', 10, false);
+    basket.addItem(item1);
+    basket.addItem(item2);
+    assert.strictEqual(32, basket.calculateTotalWithDiscount());
+  })
 
+  it('should be able to set a customer', function() {
+    customer = new Customer(true);
+    basket.setCustomer(customer);
+    assert.strictEqual(customer, basket.getCustomer());
 
+    let item1 = new Item('Curcumin', 30, true);
+    let item2 = new Item('Omega3', 10, false);
+    basket.addItem(item1);
+    basket.addItem(item2);
+    assert.strictEqual(30.4, basket.calculateTotalWithDiscount());
+  })
 
 })

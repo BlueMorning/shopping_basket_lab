@@ -1,6 +1,6 @@
 const Basket = function() {
-  this.items = [];
-
+  this.items    = [];
+  this.customer = null;
 }
 
 Basket.prototype.getItemsCount = function(){
@@ -30,6 +30,32 @@ Basket.prototype.calculateTotal = function(){
     total += item.price
   }
   return total;
+}
+
+Basket.prototype.calculateTotalWithDiscount = function () {
+
+  let total;
+
+  if(this.calculateTotal() >= 20){
+    total = this.calculateTotal() * 0.8;
+  }
+  else{
+    total = this.calculateTotal();
+  }
+
+  if(this.customer != null && this.customer.hasDiscountCard){
+    total = total*0.95;
+  }
+
+  return total;
+}
+
+Basket.prototype.getCustomer = function (){
+  return this.customer;
+}
+
+Basket.prototype.setCustomer = function (customer) {
+  this.customer = customer;
 }
 
 module.exports = Basket;
