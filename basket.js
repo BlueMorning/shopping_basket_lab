@@ -24,4 +24,12 @@ Basket.prototype.removeItem = function(item){
   }
 }
 
+Basket.prototype.calculateTotal = function(){
+  let total = 0;
+  for(item of this.items){
+    total += item.price
+  }
+  return total;
+}
+
 module.exports = Basket;

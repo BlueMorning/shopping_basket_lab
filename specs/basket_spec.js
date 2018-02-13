@@ -40,6 +40,13 @@ describe("Basket", function(){
     basket.addItem(item2);
     basket.removeItem(item2);
     assert.strictEqual(basket.getItem(item2), undefined);
+  });
+
+  it('should be able to calculate basket total', function(){
+    basket.addItem(item1);
+    basket.addItem(item2);
+    const actual = basket.calculateTotal();
+    assert.strictEqual(actual, 9.99);
   })
 
 
