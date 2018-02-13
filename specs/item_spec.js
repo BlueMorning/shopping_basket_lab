@@ -16,6 +16,10 @@ describe('Item', function(){
   it('should have a price', function(){
     const actual = item.price;
     assert.strictEqual(actual, 420.99);
+  });
+  it('should have a BOGOF eligibility', function(){
+    const actual = item.isBOGOF;
+    assert.strictEqual(actual, true);
   })
 
 });
