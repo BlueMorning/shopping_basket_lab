@@ -17,4 +17,11 @@ Basket.prototype.getItem = function(item){
   });
 }
 
+Basket.prototype.removeItem = function(item){
+  let indexToRemove = this.items.indexOf(item);
+  if(indexToRemove >= 0){
+    this.items.splice(indexToRemove, 1);
+  }
+}
+
 module.exports = Basket;
