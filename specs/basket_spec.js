@@ -28,6 +28,12 @@ describe("Basket", function(){
     assert.strictEqual(actual, 2);
   })
 
+  it('should get item from basket by name', function(){
+    basket.addItem(item1);
+    basket.addItem(item2);
+    const actual = basket.getItem(item1);
+    assert.strictEqual(actual, item1);
+  })
 
 
 
